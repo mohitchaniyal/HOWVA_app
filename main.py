@@ -14,36 +14,39 @@ ScreenManager:
         source : "logo.png"
         pos_hint:{'center_x':.5,"center_y":.7}
         size_hint:(None,None)
-        width:200
-        height:200
+        width:400
+        height:400
     MDTextField :
+        id:'login_email'
         hint_text:"Email or Phone Number"
         pos_hint:{'center_x':.5,"center_y":.5}
         size_hint:(None,None)
         helper_text:"example@email.com or 821850****"
         helper_text_mode:"on_focus" #persistent
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"account"
         icon_right_color:app.theme_cls.primary_color
     MDTextField :
+        id:login_password
         hint_text:"Password"
         pos_hint:{'center_x':.5,"center_y":.4}
         size_hint:(None,None)
         helper_text:"Don't Know Click Forget Password"
         helper_text_mode:"on_focus" #persistent
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"shield-key"
         password:True
         icon_right_color:app.theme_cls.primary_color
     MDRectangleFlatButton :
-        text:'Login'
+        text:' Login '
         pos_hint:{'center_x':0.5,"center_y":0.3}
         size_hint:(None,None)
         width:300
         height:250
         on_press:root.manager.current='dashboard'
+        on_press:app.login()
     MDRectangleFlatButton :
         text:'Sign Up'
         pos_hint:{'center_x':0.5,"center_y":0.2}
@@ -60,40 +63,40 @@ ScreenManager:
         hint_text:"Enter Your First Name"
         pos_hint:{'center_x':.5,"center_y":.9}
         size_hint:(None,None)
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"account"
         icon_right_color:app.theme_cls.primary_color
     MDTextField :
         hint_text:"Enter Your Last Name"
         pos_hint:{'center_x':.5,"center_y":.8}
         size_hint:(None,None)
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"account"
         icon_right_color:app.theme_cls.primary_color
     MDTextField :
         hint_text:"Enter Your Phone Number"
         pos_hint:{'center_x':.5,"center_y":.7}
         size_hint:(None,None)
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"phone"
         icon_right_color:app.theme_cls.primary_color
     MDTextField :
         hint_text:"Enter Your Email"
         pos_hint:{'center_x':.5,"center_y":.6}
         size_hint:(None,None)
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"mail"
         icon_right_color:app.theme_cls.primary_color
     MDTextField :
         hint_text:"Enter Your Password"
         pos_hint:{'center_x':.5,"center_y":.5}
         size_hint:(None,None)
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"shield-key"
         icon_right_color:app.theme_cls.primary_color
         password:True
@@ -101,8 +104,8 @@ ScreenManager:
         hint_text:"Security Question"
         pos_hint:{'center_x':.5,"center_y":.4}
         size_hint:(None,None)
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"account-question"
         icon_right_color:app.theme_cls.primary_color
 
@@ -110,8 +113,8 @@ ScreenManager:
         hint_text:"Security Answer"
         pos_hint:{'center_x':.5,"center_y":.3}
         size_hint:(None,None)
-        width:400
-        height:250
+        width:550
+        height:300
         icon_right:"animation-play"
         icon_right_color:app.theme_cls.primary_color
 
@@ -162,7 +165,9 @@ class MainApp(MDApp):
     def build(self):
         self.theme_cls.theme_style='Dark'
         self.theme_cls.primary_palette="DeepOrange"
-        screen=Builder.load_string(home_page_helper)
-        return screen 
+        self.screen=Builder.load_string(home_page_helper)
+        return self.screen 
+    def login(self):
+        pass
     
 MainApp().run()
