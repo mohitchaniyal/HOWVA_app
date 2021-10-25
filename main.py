@@ -2,7 +2,7 @@ from kivymd.app import MDApp
 from kivy.lang.builder import Builder
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager,Screen
-Window.size=(720,1280)
+#Window.size=(720,1280)
 home_page_helper="""
 ScreenManager:
     LoginScreen:
